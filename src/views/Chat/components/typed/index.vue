@@ -1,7 +1,7 @@
 <!--
  * @Date: 2023-05-11 15:14:41
  * @LastEditors: fyf fengyuefei12345@163.com
- * @LastEditTime: 2023-05-12 09:24:50
+ * @LastEditTime: 2023-05-12 15:52:10
 -->
 <template>
 	<div class="typed-element" ref="typedElement">
@@ -11,15 +11,7 @@
 
 <script setup>
 	import Typed from "typed.js";
-	import {
-		ref,
-		reactive,
-		onMounted,
-		onUnmounted,
-		getCurrentInstance,
-		defineProps,
-		defineExpose
-	} from "vue";
+	import { ref, reactive, onMounted, onUnmounted, getCurrentInstance, defineProps, defineExpose } from "vue";
 	import { params, getEventHandlers } from "./typed-config.js";
 	// 常量
 	onMounted(() => {
@@ -28,9 +20,7 @@
 	onUnmounted(() => {
 		typeObj.destroy();
 	});
-	const props = defineProps({
-		...params,
-	});
+	const props = defineProps({ ...params });
 	const typedElement = ref(null);
 	const inits = reactive(getCurrentInstance()); // 获取实例
 	// 变量
@@ -46,7 +36,6 @@
 	const stop = () => {
 		typeObj.stop();
 	};
-
 	defineExpose({ init, stop })
 </script>
 
@@ -57,9 +46,9 @@
 	}
 	.typed-cursor {
 		opacity: 1;
-		animation: typedjsBlink 1 s infinite;
+		animation: typed 1 s infinite;
 	}
-	@keyframes typedjsBlink {
+	@keyframes typed {
 		50% {
 			opacity: 0;
 		}
